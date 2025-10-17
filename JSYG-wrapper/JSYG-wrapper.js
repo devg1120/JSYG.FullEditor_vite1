@@ -19,6 +19,12 @@ import Point from "jsyg-point"
 
     "use strict";
 		
+
+//var rsvgLink = /^<(svg:a)\s*\/?>(?:<\/\1>|)$/;
+
+//var nameRegex = "^<(svg:a)\s*\/?>(?:<\/\1>|)$";
+//var rsvgLink = new RegExp(nameRegex);
+
     var NS = {
         html : 'http://www.w3.org/1999/xhtml',
         svg : 'http://www.w3.org/2000/svg',
@@ -29,6 +35,16 @@ import Point from "jsyg-point"
     svg = window.document && window.document.createElementNS && window.document.createElementNS(NS.svg,'svg');
 	
 export default   function JSYG(arg,context) {
+    var NS = {
+        html : 'http://www.w3.org/1999/xhtml',
+        svg : 'http://www.w3.org/2000/svg',
+        xlink : 'http://www.w3.org/1999/xlink'
+    };
+
+    var rsingleTag = /^<(\w+)\s*\/?>(?:<\/\1>|)$/;
+    var rsvgLink = /^<(svg:a)\s*\/?>(?:<\/\1>|)$/;
+    var svg = window.document && window.document.createElementNS && window.document.createElementNS(NS.svg,'svg');
+    var svgTags = ['altGlyph','altGlyphDef','altGlyphItem','animate','animateColor','animateMotion','animateTransform','circle','clipPath','color-profile','cursor','definition-src','defs','desc','ellipse','feBlend','feColorMatrix','feComponentTransfer','feComposite','feConvolveMatrix','feDiffuseLighting','feDisplacementMap','feDistantLight','feFlood','feFuncA','feFuncB','feFuncG','feFuncR','feGaussianBlur','feImage','feMerge','feMergeNode','feMorphology','feOffset','fePointLight','feSpecularLighting','feSpotLight','feTile','feTurbulence','filter','font','font-face','font-face-format','font-face-name','font-face-src','font-face-uri','foreignObject','g','glyph','glyphRef','hkern','image','line','linearGradient','marker','mask','metadata','missing-glyph','mpath','path','pattern','polygon','polyline','radialGradient','rect','set','stop','style','svg','switch','symbol','text','textPath','title','tref','tspan','use','view','vkern'];
 		
         if (!(this instanceof JSYG)) return new JSYG(arg,context);
         else {
@@ -56,7 +72,8 @@ export default   function JSYG(arg,context) {
 						
                     ret = rsingleTag.exec(arg);
 					
-                    if (ret && JSYG.svgTags.indexOf(ret[1]) !== -1)
+                    //if (ret && JSYG.svgTags.indexOf(ret[1]) !== -1)
+                    if (ret && svgTags.indexOf(ret[1]) !== -1)
                         array = [ document.createElementNS(NS.svg , ret[1]) ];					
                 }
             }
