@@ -668,7 +668,8 @@ export default class FullEditor extends JSYG {
          */
         dim(prop, value) {
             
-            if (JSYG.isPlainObject(prop) || value != null) return this._setDim(prop,value);
+            //if (JSYG.isPlainObject(prop) || value != null) return this._setDim(prop,value);
+            if ($.isPlainObject(prop) || value != null) return this._setDim(prop,value);
             else return this._getDim(prop,value);
         }
 
