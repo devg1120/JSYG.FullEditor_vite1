@@ -20,6 +20,7 @@
 //import JSYG from "jsyg"
 import JSYG                from "../JSYG-wrapper/JSYG-wrapper.js"
 import StdConstruct        from "../JSYG.StdConstruct/JSYG.StdConstruct.js"
+import Path        from "../JSYG.Path/JSYG.Path.js"
 
     "use strict";
     
@@ -102,7 +103,8 @@ export default    function PathDrawer(opt) {
      */
     PathDrawer.prototype.drawPoint2Point = function(path,e) {
         
-        path = new JSYG.Path(path);
+        //path = new JSYG.Path(path);
+        path = new Path(path);
         
         if (!path.parent().length) throw new Error("Il faut attacher l'objet path à l'arbre DOM");
         
@@ -224,7 +226,8 @@ export default    function PathDrawer(opt) {
      */
     PathDrawer.prototype.drawFreeHand = function(path,e) {
         
-        path = new JSYG.Path(path);
+        //path = new JSYG.Path(path);
+        path = new Path(path);
         
         if (!path.parent().length) throw new Error("Il faut attacher l'objet path à l'arbre DOM");
         

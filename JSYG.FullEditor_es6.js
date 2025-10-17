@@ -1526,7 +1526,8 @@ export default class FullEditor extends JSYG {
                 elmt.append(textNode);
             }
             
-            if (pos instanceof JSYG.Event) elmt.setCenter( elmt.getCursorPos(pos) );
+            //if (pos instanceof JSYG.Event) elmt.setCenter( elmt.getCursorPos(pos) );
+            if (pos instanceof $.Event) elmt.setCenter( elmt.getCursorPos(pos) );
             else {
                 
                 elmt.setDim({
