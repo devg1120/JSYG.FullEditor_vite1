@@ -15,6 +15,8 @@ import Matrix from "jsyg-matrix"
 import Vect from "jsyg-vect"
 import Point from "jsyg-point"
 
+//import Path  from "../JSYG.Path/JSYG.Path.js"
+
     "use strict";
 		
     var NS = {
@@ -2380,8 +2382,9 @@ export default   function JSYG(arg,context) {
                     break;
                 
                 case 'path' :
-                    
-                    if (!JSYG.Path) throw new Error("Il faut inclure le module JSYG.Path pour pouvoir utiliser la méthode mtx2attrs sur les chemins");
+                // GUSA
+                    //if (!JSYG.Path) throw new Error("Il faut inclure le module JSYG.Path pour pouvoir utiliser la méthode mtx2attrs sur les chemins");
+                    if (!JSYG.Path)  break;//GUSA
                     
                     jPath = new JSYG.Path(this).rel2abs();
                     list = this.pathSegList;
