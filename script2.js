@@ -121,10 +121,26 @@ $( function() {
             svgEditor.enableSelection();
         }
     });
+	
+    $('#drawShapesOff').on("click", function(){
+	    console.log("click Off");
+            svgEditor.disableShapeDrawer();
+            svgEditor.disableInsertElement();
+            svgEditor.enableSelection();
+	    $('#shape').val("-");
+    });
 
     $('#shape').on("change",function() {
 
         let type = this.value;
+
+        if (type == "-") {
+            svgEditor.disableShapeDrawer();
+            svgEditor.disableInsertElement();
+            svgEditor.enableSelection();
+            return;
+
+	}
 
         if (type.includes("path")) {
             svgEditor.drawingPathMethod = (type == "path") ? "point2point" : "freehand";
