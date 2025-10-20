@@ -3292,6 +3292,7 @@ export default   function JSYG(arg,context) {
      * @returns {JSYG}
      */
     JSYG.prototype.moveBackwards = function() {
+        console.log("JSYG.prototype.moveBackwards");
         
         return this.each(function() {
             
@@ -3306,7 +3307,7 @@ export default   function JSYG(arg,context) {
      * @returns {JSYG}
      */
     JSYG.prototype.moveBack = function() {
-        
+        console.log("JSYG.prototype.moveBack");
         return this.each(function() {
             
             new JSYG(this).parent().prepend(this);
@@ -3318,6 +3319,7 @@ export default   function JSYG(arg,context) {
      * @returns {JSYG}
      */
     JSYG.prototype.moveForwards = function() {
+        console.log("JSYG.prototype.moveForwards");
         
         return this.each(function() {
             
@@ -3332,6 +3334,7 @@ export default   function JSYG(arg,context) {
      * @returns {JSYG}
      */
     JSYG.prototype.moveFront = function() {
+        console.log("JSYG.prototype.moveFront");
         
         return this.each(function() {
             

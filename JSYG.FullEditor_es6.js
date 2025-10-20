@@ -2117,10 +2117,12 @@ export default class FullEditor extends JSYG {
     });
 
     ["Front","Backwards","Forwards","Back"].forEach(type => {
+    //["Front","ToBack","ToFront","Back"].forEach(type => {
         
         const methode = `move${type}`;
         
         FullEditor.prototype[methode] = function() {
+		console.log("FullEditoe", methode);
             
             const target = this.shapeEditor._target;
             
